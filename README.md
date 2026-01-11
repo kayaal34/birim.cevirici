@@ -180,8 +180,8 @@ Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LIC
 
 ## 📞 İletişim
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: yahya@example.com
+- GitHub: @kayaal34
+- Email: kayaalyahya@gmail.com
 
 ## 🙏 Teşekkürler
 
