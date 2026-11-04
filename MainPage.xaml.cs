@@ -292,7 +292,7 @@ public class MainPageViewModel : INotifyPropertyChanged
 
     private void Convert()
     {
-        if (string.IsNullOrWhiteSpace(InputValue) || !double.TryParse(InputValue, out double value))
+        if (!UnitConversions.TryParseInput(InputValue, out double value))
         {
             MainThread.BeginInvokeOnMainThread(async () =>
             {

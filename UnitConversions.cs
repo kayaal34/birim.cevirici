@@ -5,6 +5,23 @@
 /// </summary>
 public static class UnitConversions
 {
+    /// <summary>
+    /// Kullanıcı girişini okur. Hem "12,5" hem "12.5" kabul edilir; Türkçe sistemde
+    /// double.TryParse "12.5" değerini binlik ayıracı sayıp 125 olarak okuyordu.
+    /// </summary>
+    public static bool TryParseInput(string? input, out double value)
+    {
+        value = 0;
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            return false;
+        }
+        var normalized = input.Trim().Replace(',', '.');
+        return double.TryParse(normalized, System.Globalization.NumberStyles.Float,
+                               System.Globalization.CultureInfo.InvariantCulture, out value)
+               && double.IsFinite(value);
+    }
+
     public static (double, string) Convert(string category, string conversion, double value)
     {
         return category switch
