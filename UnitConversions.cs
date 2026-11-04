@@ -39,7 +39,7 @@ public static class UnitConversions
             "🔌 Güç" => ConvertPower(value, conversion),
             "🌡️ Basınç" => ConvertPressure(value, conversion),
             "🌊 Yoğunluk" => ConvertDensity(value, conversion),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen kategori: {category}")
         };
     }
 
@@ -53,7 +53,7 @@ public static class UnitConversions
             "Fahrenheit → Kelvin" => ((value - 32) * 5 / 9 + 273.15, "K = (°F - 32) × 5/9 + 273.15"),
             "Kelvin → Celsius" => (value - 273.15, "°C = K - 273.15"),
             "Kelvin → Fahrenheit" => ((value - 273.15) * 9 / 5 + 32, "°F = (K - 273.15) × 9/5 + 32"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -67,7 +67,7 @@ public static class UnitConversions
             "Metre → Mil" => (value * 0.000621371, "mil = m × 0.000621371"),
             "Metre → İnç" => (value * 39.3701, "inç = m × 39.3701"),
             "Metre → Ayak" => (value * 3.28084, "ayak = m × 3.28084"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -81,7 +81,7 @@ public static class UnitConversions
             "Gram → Kilogram" => (value / 1000, "kg = g ÷ 1000"),
             "Pound → Kilogram" => (value / 2.20462, "kg = lbs ÷ 2.20462"),
             "Ounce → Gram" => (value * 28.3495, "g = oz × 28.3495"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -95,7 +95,7 @@ public static class UnitConversions
             "Mililitre → Litre" => (value / 1000, "L = mL ÷ 1000"),
             "Galon → Litre" => (value * 3.78541, "L = gal × 3.78541"),
             "Pint → Mililitre" => (value * 473.176, "mL = pint × 473.176"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -109,7 +109,7 @@ public static class UnitConversions
             "Hektar → m²" => (value * 10000, "m² = ha × 10,000"),
             "m² → Mil²" => (value * 3.86102e-7, "mil² = m² × 3.86102e-7"),
             "Hektar → Dekar" => (value * 10, "dekar = ha × 10"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -123,7 +123,7 @@ public static class UnitConversions
             "km/h → mil/h" => (value * 0.621371, "mil/h = km/h × 0.621371"),
             "m/s → Knot" => (value * 1.94384, "knot = m/s × 1.94384"),
             "mil/h → km/h" => (value * 1.60934, "km/h = mil/h × 1.60934"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -137,7 +137,7 @@ public static class UnitConversions
             "Kilojoule → Joule" => (value * 1000, "J = kJ × 1000"),
             "Kilowatt-saat → Joule" => (value * 3600000, "J = kWh × 3,600,000"),
             "Kalori → Joule" => (value * 4.184, "J = cal × 4.184"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -152,7 +152,7 @@ public static class UnitConversions
             "Radian → Gradient" => (value * 200 / PI, "grad = rad × 200/π"),
             "Gradient → Derece" => (value * 0.9, "derece = grad × 0.9"),
             "Gradient → Radian" => (value * 0.9 * PI / 180, "rad = grad × 0.9 × π/180"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -168,7 +168,7 @@ public static class UnitConversions
             "Saat → Saniye" => (value * 3600, "saniye = sa × 3600"),
             "Gün → Saat" => (value * 24, "sa = gün × 24"),
             "Hafta → Gün" => (value * 7, "gün = hafta × 7"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -183,7 +183,7 @@ public static class UnitConversions
             "Megabyte → Byte" => (value * 1048576, "byte = MB × 1,048,576"),
             "Megabyte → Gigabyte" => (value / 1024, "GB = MB ÷ 1024"),
             "Gigabyte → Megabyte" => (value * 1024, "MB = GB × 1024"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -197,7 +197,7 @@ public static class UnitConversions
             "Kilowatt → Megawatt" => (value / 1000, "MW = kW ÷ 1000"),
             "Megawatt → Kilowatt" => (value * 1000, "kW = MW × 1000"),
             "Megawatt → Watt" => (value * 1000000, "W = MW × 1,000,000"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -211,7 +211,7 @@ public static class UnitConversions
             "Bar → Pascal" => (value * 100000, "Pa = bar × 100,000"),
             "ATM → Pascal" => (value * 101325, "Pa = atm × 101,325"),
             "PSI → Pascal" => (value * 6894.757, "Pa = psi × 6894.757"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 
@@ -225,7 +225,7 @@ public static class UnitConversions
             "g/cm³ → lb/ft³" => (value * 62.4279606, "lb/ft³ = g/cm³ × 62.428"),
             "lb/ft³ → kg/m³" => (value * 16.01846337, "kg/m³ = lb/ft³ × 16.018"),
             "lb/ft³ → g/cm³" => (value * 0.016018463, "g/cm³ = lb/ft³ × 0.01602"),
-            _ => (0, "")
+            _ => throw new ArgumentException($"Bilinmeyen dönüşüm: {conversion}")
         };
     }
 }
