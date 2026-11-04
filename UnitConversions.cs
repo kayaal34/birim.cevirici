@@ -126,13 +126,13 @@ public static class UnitConversions
 
     public static (double, string) ConvertAngle(double value, string conversion)
     {
-        const double PI = 3.14159265359;
+        const double PI = Math.PI;
         return conversion switch
         {
             "Derece → Radian" => (value * PI / 180, "rad = derece × π/180"),
-            "Derece → Gradient" => (value * 1.11111111, "grad = derece × 1.111"),
+            "Derece → Gradient" => (value * 10 / 9, "grad = derece × 10/9"),
             "Radian → Derece" => (value * 180 / PI, "derece = rad × 180/π"),
-            "Radian → Gradient" => (value * 180 / PI * 1.11111111, "grad = rad × 180/π × 1.111"),
+            "Radian → Gradient" => (value * 200 / PI, "grad = rad × 200/π"),
             "Gradient → Derece" => (value * 0.9, "derece = grad × 0.9"),
             "Gradient → Radian" => (value * 0.9 * PI / 180, "rad = grad × 0.9 × π/180"),
             _ => (0, "")
